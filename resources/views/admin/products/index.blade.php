@@ -15,11 +15,11 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ( $products as $product )
+                @foreach ( $products as $key =>  $product )
                 <tr>
-                    <th scope="row">{{$product -> id}}</th>
+                    <th scope="row">{{++$key}}</th>
                     <td>{{$product -> name}}</td>
-                    <td>{{$product -> category_id}}</td>
+                    <td>{{$product -> category->name}}</td>
                     <td>{{$product -> price}}</td>
                     <td>{{$product -> quantity}}</td>
                     <td>
@@ -30,5 +30,6 @@
                 @endforeach
             </tbody>
         </table>
+        {{$products -> links()}}
     </div>
 @endsection

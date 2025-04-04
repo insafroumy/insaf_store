@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
+    public function __construct(){
+        $this -> middleware('auth');
+    }
+
     public function index(Request $request){
         //$products =  Product::take(3)->get();
         $products =  Product::all();

@@ -11,9 +11,9 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ( $categories as $category )
+                @foreach ( $categories as $key => $category )
                 <tr>
-                    <th scope="row">{{$category->id}}</th>
+                    <th scope="row">{{++$key}}</th>
                     <td>{{$category->name}}</td>
                     <td>
                         <a href="{{url('categories/delete/'.$category->id)}}" class="btn btn-danger">حذف</a>
@@ -23,5 +23,6 @@
                 @endforeach
             </tbody>
         </table>
+        {{$categories -> links()}}
     </div>
 @endsection
